@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.alfresco.devops</groupId>
     <artifactId>alfresco-json-logging-amp</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.4-SNAPSHOT</version>
     <name>alfresco-json-logging-amp Repository AMP project</name>
     <packaging>amp</packaging>
     <description>Adds JAR libs in alfresco/share WAR files needed to output JSON from log4j</description>
