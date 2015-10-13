@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.alfresco.devops</groupId>
+    <artifactId>alfresco-json-logging-amp</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>alfresco-json-logging-amp Repository AMP project</name>
+    <packaging>amp</packaging>
+    <description>Adds JAR libs in alfresco/share WAR files needed to output JSON from log4j</description>
+
+    <parent>
+        <groupId>org.alfresco.maven</groupId>
+        <artifactId>alfresco-sdk-parent</artifactId>
+        <version>2.1.0</version>
+    </parent>
+
+    <scm>
+      <connection>scm:git:git@github.com:Alfresco/json-logging-amp.git</connection>
+      <url>scm:git:git@github.com:Alfresco/json-logging-amp.git</url>
+      <developerConnection>scm:git:git@github.com:Alfresco/json-logging-amp.git</developerConnection>
+    </scm>
+
+    <distributionManagement>
+      <repository>
+        <id>alfresco-internal</id>
+        <url>https://artifacts.alfresco.com/nexus/content/repositories/internal-releases/</url>
+      </repository>
+      <snapshotRepository>
+        <id>alfresco-internal-snapshots</id>
+        <url>https://artifacts.alfresco.com/nexus/content/repositories/internal-snapshots/</url>
+      </snapshotRepository>
+    </distributionManagement>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>${alfresco.groupId}</groupId>
+                <artifactId>alfresco-platform-distribution</artifactId>
+                <version>${alfresco.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+      <dependency>
+          <groupId>net.logstash.log4j</groupId>
+          <artifactId>jsonevent-layout</artifactId>
+          <version>1.7</version>
+      </dependency>
+      <dependency>
+          <groupId>net.minidev</groupId>
+          <artifactId>json-smart</artifactId>
+          <version>2.2</version>
+      </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>amp-to-war</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.alfresco.maven</groupId>
+                    <artifactId>alfresco-rad</artifactId>
+                    <version>${maven.alfresco.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+</project>
